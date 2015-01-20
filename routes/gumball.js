@@ -2,9 +2,10 @@
  * New node file
  */
 var MongoClient = require('mongodb').MongoClient;
-exports.getCall = function(req, res){
+
+exports.getCall = function(req, res) {
 	var id=parseInt(req.params.id);
-var userName="Harshank";
+	var userName="Harshank";
 	var password="password";
 	MongoClient.connect("mongodb://"+userName+":"+password+"@ds051990.mongolab.com:51990/gb", function(err, db) {
 		  if(!err) {
@@ -24,9 +25,7 @@ var userName="Harshank";
 		});
 };
 
-
 exports.putCall=function(req,res){
-	
 	var countGumballs=req.body.countGumballs;
 	var id=parseInt(req.params.id);
 	var userName="Harshank";
@@ -49,21 +48,11 @@ exports.putCall=function(req,res){
 		    			res.writeHead(200,{"Content-Type":"application/json"});
 				    	res.end(JSON.stringify("SuccessFull updated")+"\n");
 		    		})
-		    		
-		    		
 		    	}
-		    	
-		    	
-		    	
-		    	
 		    });
-		  }else{
-			  
+		  } else {			  
 			  res.writeHead(200,{"Content-Type":"application/json"});
 		    	res.end(JSON.stringify("Error")+"\n");
 		  }
-		//db.close();
 		});
-	
-	
 }
